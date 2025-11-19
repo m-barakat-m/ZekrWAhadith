@@ -196,7 +196,7 @@
             margin: 0 auto;
         }
 
-        /* Slider Section */
+        /* Slider Section - متناسب مع 680×1330 */
         .slider-section {
             margin: 60px 0;
             padding: 40px 20px;
@@ -212,12 +212,19 @@
             color: var(--secondary);
         }
 
+        .swiper-container {
+            width: 100%;
+            max-width: 400px; /* عرض متناسب مع نسبة 680×1330 */
+            margin: 0 auto;
+            position: relative;
+        }
+
         .swiper {
             width: 100%;
-            height: 500px;
-            border-radius: 20px;
+            height: 780px; /* ارتفاع متناسب مع العرض */
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
 
         .swiper-slide {
@@ -226,44 +233,46 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
         }
 
         .swiper-slide img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
+            border-radius: 20px;
         }
 
         .swiper-pagination-bullet {
             background: var(--text-light);
             opacity: 0.5;
-            width: 12px;
-            height: 12px;
-            margin: 0 8px !important;
+            width: 10px;
+            height: 10px;
+            margin: 0 6px !important;
         }
 
         .swiper-pagination-bullet-active {
             background: var(--secondary);
             opacity: 1;
-            transform: scale(1.2);
+            transform: scale(1.3);
         }
 
         .swiper-button-next,
         .swiper-button-prev {
             color: var(--secondary);
-            background: rgba(255, 255, 255, 0.1);
-            width: 50px;
-            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         .swiper-button-next:after,
         .swiper-button-prev:after {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
         }
 
@@ -272,6 +281,13 @@
             background: var(--secondary);
             color: white;
             transform: scale(1.1);
+            border-color: var(--secondary);
+        }
+
+        /* تأثيرات إضافية للسلايدر */
+        .swiper-slide-shadow-left,
+        .swiper-slide-shadow-right {
+            border-radius: 20px;
         }
 
         /* Footer */
@@ -313,8 +329,12 @@
                 font-size: 2em;
             }
             
+            .swiper-container {
+                max-width: 350px;
+            }
+            
             .swiper {
-                height: 400px;
+                height: 680px;
             }
             
             .features-grid {
@@ -329,11 +349,6 @@
             .btn {
                 width: 100%;
                 max-width: 300px;
-            }
-            
-            .swiper-button-next,
-            .swiper-button-prev {
-                display: none;
             }
         }
 
@@ -351,12 +366,31 @@
                 height: 100px;
             }
             
+            .swiper-container {
+                max-width: 300px;
+            }
+            
             .swiper {
-                height: 300px;
+                height: 580px;
             }
             
             .slider-section {
                 padding: 30px 15px;
+            }
+            
+            .swiper-button-next,
+            .swiper-button-prev {
+                display: none;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .swiper-container {
+                max-width: 280px;
+            }
+            
+            .swiper {
+                height: 540px;
             }
         }
     </style>
@@ -426,33 +460,35 @@
         <!-- قسم السلايدر -->
         <section class="slider-section">
             <h2><i class="fas fa-mobile-alt"></i> شاشات التطبيق</h2>
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="IMG-20251117-WA0001.jpg" alt="شاشة التطبيق 1">
+            <div class="swiper-container">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="IMG-20251117-WA0001.jpg" alt="شاشة التطبيق 1">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="IMG-20251117-WA0002.jpg" alt="شاشة التطبيق 2">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="IMG-20251117-WA0003.jpg" alt="شاشة التطبيق 3">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="IMG-20251117-WA0004.jpg" alt="شاشة التطبيق 4">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="IMG-20251117-WA0005.jpg" alt="شاشة التطبيق 5">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="IMG-20251117-WA0006.jpg" alt="شاشة التطبيق 6">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="IMG-20251117-WA0007.jpg" alt="شاشة التطبيق 7">
+                        </div>
                     </div>
-                    <div class="swiper-slide">
-                        <img src="IMG-20251117-WA0002.jpg" alt="شاشة التطبيق 2">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="IMG-20251117-WA0003.jpg" alt="شاشة التطبيق 3">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="IMG-20251117-WA0004.jpg" alt="شاشة التطبيق 4">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="IMG-20251117-WA0005.jpg" alt="شاشة التطبيق 5">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="IMG-20251117-WA0006.jpg" alt="شاشة التطبيق 6">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="IMG-20251117-WA0007.jpg" alt="شاشة التطبيق 7">
-                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
             </div>
         </section>
 
@@ -472,7 +508,7 @@
     <script>
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 1,
-            spaceBetween: 30,
+            spaceBetween: 20,
             loop: true,
             autoplay: {
                 delay: 4000,
@@ -487,7 +523,8 @@
                 prevEl: ".swiper-button-prev",
             },
             effect: 'slide',
-            speed: 800,
+            speed: 600,
+            centeredSlides: true,
         });
     </script>
 </body>
