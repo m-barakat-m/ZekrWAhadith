@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تطبيق أذكار وأحاديث</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
     <style>
         * {
             margin: 0;
@@ -30,7 +31,7 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -47,10 +48,10 @@
         }
 
         .logo {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             margin: 0 auto 20px;
-            border-radius: 30px;
+            border-radius: 25px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             border: 3px solid var(--secondary);
@@ -63,96 +64,16 @@
         }
 
         h1 {
-            font-size: 2.8em;
+            font-size: 2.5em;
             margin-bottom: 10px;
             color: var(--text-light);
         }
 
         .subtitle {
-            font-size: 1.3em;
+            font-size: 1.2em;
             color: var(--text-light);
             opacity: 0.9;
             margin-bottom: 20px;
-        }
-
-        /* Screenshots Section */
-        .screenshots-section {
-            margin: 50px 0;
-            text-align: center;
-        }
-
-        .screenshots-section h2 {
-            font-size: 2.2em;
-            margin-bottom: 40px;
-            color: var(--secondary);
-        }
-
-        .screenshots-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .screenshot-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 20px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .screenshot-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .screenshot-img {
-            width: 100%;
-            height: 500px;
-            border-radius: 15px;
-            object-fit: cover;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .screenshot-card:hover .screenshot-img {
-            transform: scale(1.05);
-        }
-
-        .screenshot-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, rgba(33, 104, 105, 0.8) 0%, transparent 50%);
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 20px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .screenshot-card:hover .screenshot-overlay {
-            opacity: 1;
-        }
-
-        .screenshot-number {
-            background: var(--secondary);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2em;
         }
 
         /* Features Grid */
@@ -275,6 +196,84 @@
             margin: 0 auto;
         }
 
+        /* Slider Section */
+        .slider-section {
+            margin: 60px 0;
+            padding: 40px 20px;
+            background: rgba(31, 36, 33, 0.6);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .slider-section h2 {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            color: var(--secondary);
+        }
+
+        .swiper {
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .swiper-slide {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+        }
+
+        .swiper-pagination-bullet {
+            background: var(--text-light);
+            opacity: 0.5;
+            width: 12px;
+            height: 12px;
+            margin: 0 8px !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--secondary);
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--secondary);
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background: var(--secondary);
+            color: white;
+            transform: scale(1.1);
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -311,15 +310,11 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.2em;
+                font-size: 2em;
             }
             
-            .screenshots-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .screenshot-img {
-                height: 350px;
+            .swiper {
+                height: 400px;
             }
             
             .features-grid {
@@ -335,6 +330,11 @@
                 width: 100%;
                 max-width: 300px;
             }
+            
+            .swiper-button-next,
+            .swiper-button-prev {
+                display: none;
+            }
         }
 
         @media (max-width: 480px) {
@@ -347,16 +347,16 @@
             }
             
             .logo {
-                width: 120px;
-                height: 120px;
+                width: 100px;
+                height: 100px;
             }
             
-            .screenshots-grid {
-                grid-template-columns: 1fr;
+            .swiper {
+                height: 300px;
             }
             
-            .screenshot-img {
-                height: 400px;
+            .slider-section {
+                padding: 30px 15px;
             }
         }
     </style>
@@ -370,61 +370,6 @@
             <h1>تطبيق أذكار وأحاديث</h1>
             <p class="subtitle">تطبيق متكامل للأذكار والأحاديث ومواقيت الصلاة</p>
         </header>
-
-        <!-- قسم شاشات التطبيق -->
-        <section class="screenshots-section">
-            <h2><i class="fas fa-mobile-alt"></i> شاشات التطبيق</h2>
-            <div class="screenshots-grid">
-                <div class="screenshot-card">
-                    <img src="IMG-20251117-WA0000.jpg" alt="شاشة التطبيق 1" class="screenshot-img">
-                    <div class="screenshot-overlay">
-                        <div class="screenshot-number">1</div>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <img src="IMG-20251117-WA0001.jpg" alt="شاشة التطبيق 2" class="screenshot-img">
-                    <div class="screenshot-overlay">
-                        <div class="screenshot-number">2</div>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <img src="IMG-20251117-WA0002.jpg" alt="شاشة التطبيق 3" class="screenshot-img">
-                    <div class="screenshot-overlay">
-                        <div class="screenshot-number">3</div>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <img src="IMG-20251117-WA0003.jpg" alt="شاشة التطبيق 4" class="screenshot-img">
-                    <div class="screenshot-overlay">
-                        <div class="screenshot-number">4</div>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <img src="IMG-20251117-WA0004.jpg" alt="شاشة التطبيق 5" class="screenshot-img">
-                    <div class="screenshot-overlay">
-                        <div class="screenshot-number">5</div>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <img src="IMG-20251117-WA0005.jpg" alt="شاشة التطبيق 6" class="screenshot-img">
-                    <div class="screenshot-overlay">
-                        <div class="screenshot-number">6</div>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <img src="IMG-20251117-WA0006.jpg" alt="شاشة التطبيق 7" class="screenshot-img">
-                    <div class="screenshot-overlay">
-                        <div class="screenshot-number">7</div>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <img src="IMG-20251117-WA0007.jpg" alt="شاشة التطبيق 8" class="screenshot-img">
-                    <div class="screenshot-overlay">
-                        <div class="screenshot-number">8</div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- قسم مواقيت الصلاة المميز -->
         <section class="prayer-highlight">
@@ -478,6 +423,39 @@
             </a>
         </div>
 
+        <!-- قسم السلايدر -->
+        <section class="slider-section">
+            <h2><i class="fas fa-mobile-alt"></i> شاشات التطبيق</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="IMG-20251117-WA0001.jpg" alt="شاشة التطبيق 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="IMG-20251117-WA0002.jpg" alt="شاشة التطبيق 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="IMG-20251117-WA0003.jpg" alt="شاشة التطبيق 3">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="IMG-20251117-WA0004.jpg" alt="شاشة التطبيق 4">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="IMG-20251117-WA0005.jpg" alt="شاشة التطبيق 5">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="IMG-20251117-WA0006.jpg" alt="شاشة التطبيق 6">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="IMG-20251117-WA0007.jpg" alt="شاشة التطبيق 7">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </section>
+
         <footer>
             <div class="footer-links">
                 <a href="app-ads.txt"><i class="fas fa-ad"></i> ملف الإعلانات</a>
@@ -489,5 +467,28 @@
             </div>
         </footer>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            effect: 'slide',
+            speed: 800,
+        });
+    </script>
 </body>
     </html>
