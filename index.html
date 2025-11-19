@@ -30,7 +30,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -47,21 +47,23 @@
         }
 
         .logo {
-            width: 120px;
-            height: 120px;
-            background: var(--secondary);
-            border-radius: 30px;
+            width: 150px;
+            height: 150px;
             margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 50px;
-            color: white;
-            box-shadow: 0 8px 20px rgba(73, 160, 120, 0.3);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--secondary);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin-bottom: 10px;
             color: var(--text-light);
         }
@@ -71,6 +73,86 @@
             color: var(--text-light);
             opacity: 0.9;
             margin-bottom: 20px;
+        }
+
+        /* Screenshots Section */
+        .screenshots-section {
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .screenshots-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            color: var(--secondary);
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .screenshot-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screenshot-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .screenshot-img {
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-card:hover .screenshot-img {
+            transform: scale(1.05);
+        }
+
+        .screenshot-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(33, 104, 105, 0.8) 0%, transparent 50%);
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .screenshot-card:hover .screenshot-overlay {
+            opacity: 1;
+        }
+
+        .screenshot-number {
+            background: var(--secondary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
         }
 
         /* Features Grid */
@@ -164,25 +246,33 @@
             margin-left: 8px;
         }
 
-        /* App Specs */
-        .specs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .spec-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 15px;
+        /* Prayer Feature Highlight */
+        .prayer-highlight {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
             text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .spec-card h4 {
+        .prayer-highlight .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .prayer-highlight h2 {
             color: var(--secondary);
-            margin-bottom: 10px;
-            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .prayer-highlight p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* Footer */
@@ -218,39 +308,18 @@
             font-size: 0.9em;
         }
 
-        /* Prayer Feature Highlight */
-        .prayer-highlight {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 30px 0;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .prayer-highlight .feature-icon {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
-
-        .prayer-highlight h2 {
-            color: var(--secondary);
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-
-        .prayer-highlight p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.1em;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2em;
+                font-size: 2.2em;
+            }
+            
+            .screenshots-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .screenshot-img {
+                height: 350px;
             }
             
             .features-grid {
@@ -278,13 +347,16 @@
             }
             
             .logo {
-                width: 100px;
-                height: 100px;
-                font-size: 40px;
+                width: 120px;
+                height: 120px;
             }
             
-            .prayer-highlight {
-                padding: 20px;
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .screenshot-img {
+                height: 400px;
             }
         }
     </style>
@@ -293,11 +365,66 @@
     <div class="container">
         <header>
             <div class="logo">
-                <i class="fas fa-book-quran"></i>
+                <img src="IMG_20251013_151330.png" alt="لوجو تطبيق أذكار وأحاديث">
             </div>
             <h1>تطبيق أذكار وأحاديث</h1>
             <p class="subtitle">تطبيق متكامل للأذكار والأحاديث ومواقيت الصلاة</p>
         </header>
+
+        <!-- قسم شاشات التطبيق -->
+        <section class="screenshots-section">
+            <h2><i class="fas fa-mobile-alt"></i> شاشات التطبيق</h2>
+            <div class="screenshots-grid">
+                <div class="screenshot-card">
+                    <img src="IMG-20251117-WA0000.jpg" alt="شاشة التطبيق 1" class="screenshot-img">
+                    <div class="screenshot-overlay">
+                        <div class="screenshot-number">1</div>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <img src="IMG-20251117-WA0001.jpg" alt="شاشة التطبيق 2" class="screenshot-img">
+                    <div class="screenshot-overlay">
+                        <div class="screenshot-number">2</div>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <img src="IMG-20251117-WA0002.jpg" alt="شاشة التطبيق 3" class="screenshot-img">
+                    <div class="screenshot-overlay">
+                        <div class="screenshot-number">3</div>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <img src="IMG-20251117-WA0003.jpg" alt="شاشة التطبيق 4" class="screenshot-img">
+                    <div class="screenshot-overlay">
+                        <div class="screenshot-number">4</div>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <img src="IMG-20251117-WA0004.jpg" alt="شاشة التطبيق 5" class="screenshot-img">
+                    <div class="screenshot-overlay">
+                        <div class="screenshot-number">5</div>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <img src="IMG-20251117-WA0005.jpg" alt="شاشة التطبيق 6" class="screenshot-img">
+                    <div class="screenshot-overlay">
+                        <div class="screenshot-number">6</div>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <img src="IMG-20251117-WA0006.jpg" alt="شاشة التطبيق 7" class="screenshot-img">
+                    <div class="screenshot-overlay">
+                        <div class="screenshot-number">7</div>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <img src="IMG-20251117-WA0007.jpg" alt="شاشة التطبيق 8" class="screenshot-img">
+                    <div class="screenshot-overlay">
+                        <div class="screenshot-number">8</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- قسم مواقيت الصلاة المميز -->
         <section class="prayer-highlight">
@@ -340,22 +467,6 @@
                 <h3>الإحصاءات والسجل</h3>
                 <p>تتبع تقدمك في حفظ الأذكار والأحاديث مع إحصائيات مفصلة وسجل كامل</p>
             </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <h3>ثيمات متعددة</h3>
-                <p>تجربة استخدام مريحة مع نظام ثيمات متكامل (فاتح/غامق) يتناسب مع تفضيلاتك</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-bell"></i>
-                </div>
-                <h3>تذكير المواقيت</h3>
-                <p>تذكير بمواقيت الصلاة حسب موقعك الجغرافي مع إشعارات قبل كل صلاة</p>
-            </div>
         </section>
 
         <div class="actions">
@@ -365,25 +476,6 @@
             <a href="Azkar_W_Ahadith.apk" class="btn btn-secondary" download>
                 <i class="fas fa-download"></i> تحميل APK مباشر
             </a>
-        </div>
-
-        <div class="specs">
-            <div class="spec-card">
-                <h4><i class="fas fa-code-branch"></i> الإصدار</h4>
-                <p>أخر تحديث: 17 نوفمبر 2025</p>
-            </div>
-            <div class="spec-card">
-                <h4><i class="fas fa-language"></i> اللغة</h4>
-                <p>العربية (سيتم إضافة لغات أخرى)</p>
-            </div>
-            <div class="spec-card">
-                <h4><i class="fas fa-paint-roller"></i> الثيمات</h4>
-                <p>ثيم فاتح وثيم غامق</p>
-            </div>
-            <div class="spec-card">
-                <h4><i class="fas fa-mobile-alt"></i> التوافق</h4>
-                <p>أندرويد 8.0 والإصدارات الأحدث</p>
-            </div>
         </div>
 
         <footer>
@@ -398,4 +490,4 @@
         </footer>
     </div>
 </body>
-                    </html>
+    </html>
