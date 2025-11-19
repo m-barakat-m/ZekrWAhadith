@@ -1,100 +1,383 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سياسة الخصوصية - تطبيق أذكار وأحاديث</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', sans-serif;
+        }
+
+        :root {
+            --primary: #216869;
+            --secondary: #49A078;
+            --accent: #1F2421;
+            --light: #f8f9fa;
+            --text-dark: #1F2421;
+            --text-light: #ffffff;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--text-light);
+            line-height: 1.7;
+            min-height: 100vh;
             direction: rtl;
-            text-align: right;
-            background-color: #f9f9f9;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px 20px;
         }
+
+        /* Header Styles */
+        .policy-header {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(31, 36, 33, 0.9);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .policy-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary);
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(73, 160, 120, 0.3);
+        }
+
         h1 {
-            color: #2c5f2d;
-            text-align: center;
-            border-bottom: 2px solid #2c5f2d;
-            padding-bottom: 10px;
+            font-size: 2.3em;
+            margin-bottom: 10px;
+            color: var(--text-light);
+            background: linear-gradient(135deg, var(--secondary), var(--light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        h2 {
-            color: #2c5f2d;
-            margin-top: 25px;
-        }
+
         .last-updated {
-            color: #666;
-            font-style: italic;
-            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1em;
             display: block;
+            margin-top: 10px;
         }
-        .highlight {
-            background-color: #f0f8f0;
-            padding: 15px;
-            border-right: 4px solid #2c5f2d;
+
+        /* Content Sections */
+        .policy-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: var(--secondary);
+            font-size: 1.6em;
+            margin: 30px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(73, 160, 120, 0.3);
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        ul {
+            color: rgba(255, 255, 255, 0.9);
             margin: 15px 0;
-            border-radius: 5px;
+            padding-right: 20px;
         }
-        .contact {
-            background-color: #e8f4f8;
-            padding: 15px;
-            border-radius: 5px;
+
+        li {
+            margin-bottom: 10px;
+            padding-right: 10px;
+            position: relative;
+        }
+
+        li:before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            margin-left: 10px;
+            position: absolute;
+            right: -15px;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: rgba(73, 160, 120, 0.15);
+            border: 2px solid var(--secondary);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(73, 160, 120, 0.1) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .highlight-box h3 {
+            color: var(--secondary);
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .highlight-box h3 i {
+            font-size: 1.2em;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: rgba(33, 104, 105, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid rgba(73, 160, 120, 0.3);
+        }
+
+        .contact-section h3 {
+            color: var(--secondary);
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .contact-email:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(73, 160, 120, 0.4);
+        }
+
+        /* Footer */
+        .policy-footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            background: rgba(31, 36, 33, 0.8);
+            border-radius: 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
             margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Back to Home Button */
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .back-home:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(73, 160, 120, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .policy-header {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .policy-content {
+                padding: 25px;
+            }
+            
+            h2 {
+                font-size: 1.4em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .policy-header {
+                padding: 25px 15px;
+            }
+            
+            .policy-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 25px;
+            }
+            
+            h1 {
+                font-size: 1.6em;
+            }
+            
+            .policy-content {
+                padding: 20px;
+            }
+            
+            .highlight-box {
+                padding: 20px;
+            }
+            
+            .contact-section {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>سياسة الخصوصية</h1>
-        <span class="last-updated">آخر تحديث: نوفمبر 2025</span>
+        <header class="policy-header">
+            <div class="policy-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h1>سياسة الخصوصية</h1>
+            <span class="last-updated">آخر تحديث: نوفمبر 2025</span>
+        </header>
 
-        <div class="highlight">
-            <h2>✨ ملخص مهم</h2>
-            <p><strong>تطبيق "أذكار وأحاديث" متاح لجميع الأعمار ولا يجمع أي بيانات شخصية.</strong></p>
-            <p>الوصول إلى الموقع الجغرافي هو الإذن الوحيد الذي قد يطلبه التطبيق، وهو اختياري تماماً.</p>
+        <div class="policy-content">
+            <div class="highlight-box">
+                <h3><i class="fas fa-star"></i> ملخص مهم</h3>
+                <p><strong>تطبيق "أذكار وأحاديث" متاح لجميع الأعمار ولا يجمع أي بيانات شخصية.</strong></p>
+                <p>الوصول إلى الموقع الجغرافي هو الإذن الوحيد الذي قد يطلبه التطبيق، وهو اختياري تماماً.</p>
+            </div>
+
+            <h2><i class="fas fa-info-circle"></i> مقدمة</h2>
+            <p>مرحباً بك في تطبيق "أذكار وأحاديث". نحن نقدّر خصوصيتك ونلتزم بحماية بياناتك. هذه السياسة توضح كيفية تعاملنا مع معلوماتك.</p>
+
+            <h2><i class="fas fa-database"></i> البيانات التي نجمعها</h2>
+            <p><strong>لا نجمع أي بيانات شخصية من المستخدمين.</strong> التطبيق مصمم ليعمل بدون الحاجة إلى أي معلومات شخصية.</p>
+
+            <h2><i class="fas fa-map-marker-alt"></i> الوصول إلى الموقع الجغرافي</h2>
+            <p>التطبيق قد يطلب إذن الوصول إلى موقعك الجغرافي <strong>بشكل اختياري</strong> لتحسين تجربة المستخدم. يمكنك:</p>
+            <ul>
+                <li>رفض هذا الإذن والاستمرار في استخدام التطبيق بكامل وظائفه</li>
+                <li>تغيير هذا الإذن في أي وقت من إعدادات جهازك</li>
+                <li>معرفة أننا لا نخزن أو نشارك بيانات موقعك</li>
+            </ul>
+
+            <h2><i class="fas fa-ad"></i> الإعلانات</h2>
+            <p>التطبيق يعرض إعلانات عبر شبكات الطرف الثالث (مثل Google AdMob). هذه الشبكات قد تجمع بيانات للترويج لإعلانات مخصصة وفقاً لسياسات الخصوصية الخاصة بها.</p>
+
+            <h2><i class="fas fa-users"></i> الفئة العمرية</h2>
+            <p>التطبيق <strong>مناسب لجميع الأعمار</strong> ولا يحتوي على محتوى غير لائق.</p>
+
+            <h2><i class="fas fa-sync-alt"></i> التغييرات على السياسة</h2>
+            <p>نحن نحتفظ بالحق في تحديث هذه السياسة. أي تغييرات سيتم نشرها على هذه الصفحة.</p>
+
+            <div class="contact-section">
+                <h3><i class="fas fa-envelope"></i> اتصل بنا</h3>
+                <p>إذا كان لديك أي استفسارات حول سياسة الخصوصية، لا تتردد في التواصل معنا:</p>
+                <a href="mailto:m.barakat.m129@gmail.com" class="contact-email">
+                    <i class="fas fa-paper-plane"></i>
+                    m.barakat.m129@gmail.com
+                </a>
+            </div>
         </div>
 
-        <h2>مقدمة</h2>
-        <p>مرحباً بك في تطبيق "أذكار وأحاديث". نحن نقدّر خصوصيتك ونلتزم بحماية بياناتك. هذه السياسة توضح كيفية تعاملنا مع معلوماتك.</p>
-
-        <h2>البيانات التي نجمعها</h2>
-        <p><strong>لا نجمع أي بيانات شخصية من المستخدمين.</strong> التطبيق مصمم ليعمل بدون الحاجة إلى أي معلومات شخصية.</p>
-
-        <h2>الوصول إلى الموقع الجغرافي</h2>
-        <p>التطبيق قد يطلب إذن الوصول إلى موقعك الجغرافي <strong>بشكل اختياري</strong> لتحسين تجربة المستخدم. يمكنك:</p>
-        <ul>
-            <li>رفض هذا الإذن والاستمرار في استخدام التطبيق بكامل وظائفه</li>
-            <li>تغيير هذا الإذن في أي وقت من إعدادات جهازك</li>
-            <li>معرفة أننا لا نخزن أو نشارك بيانات موقعك</li>
-        </ul>
-
-        <h2>الإعلانات</h2>
-        <p>التطبيق يعرض إعلانات عبر شبكات الطرف الثالث (مثل Google AdMob). هذه الشبكات قد تجمع بيانات للترويج لإعلانات مخصصة وفقاً لسياسات الخصوصية الخاصة بها.</p>
-
-        <h2>الفئة العمرية</h2>
-        <p>التطبيق <strong>مناسب لجميع الأعمار</strong> ولا يحتوي على محتوى غير لائق.</p>
-
-        <h2>التغييرات على السياسة</h2>
-        <p>نحن نحتفظ بالحق في تحديث هذه السياسة. أي تغييرات سيتم نشرها على هذه الصفحة.</p>
-
-        <div class="contact">
-            <h2>اتصل بنا</h2>
-            <p>إذا كان لديك أي استفسارات حول سياسة الخصوصية، لا تتردد في التواصل معنا:</p>
-            <p>📧 البريد الإلكتروني: <a href="mailto:m.barakat.m129@gmail.com">m.barakat.m129@gmail.com</a></p>
+        <div class="policy-footer">
+            <div class="footer-links">
+                <a href="index.html">
+                    <i class="fas fa-home"></i> الصفحة الرئيسية
+                </a>
+                <a href="app-ads.txt">
+                    <i class="fas fa-ad"></i> ملف الإعلانات
+                </a>
+            </div>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; تطبيق أذكار وأحاديث 2025</p>
+                <p>شكراً لاستخدامك تطبيق "أذكار وأحاديث" 🙏</p>
+            </div>
+            
+            <a href="index.html" class="back-home">
+                <i class="fas fa-arrow-right"></i> العودة للصفحة الرئيسية
+            </a>
         </div>
-
-        <p style="text-align: center; margin-top: 30px; color: #666; font-size: 14px;">
-            شكراً لاستخدامك تطبيق "أذكار وأحاديث" 🙏
-        </p>
     </div>
 </body>
-</html>
+    </html>
