@@ -3,174 +3,399 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أذكار وأحاديث - تطبيق الأذكار والأحاديث النبوية</title>
-    <meta name="description" content="الموقع الرسمي لتطبيق أذكار وأحاديث - تطبيق الأذكار اليومية والأحاديث النبوية الشريفة">
+    <title>تطبيق أذكار وأحاديث</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', sans-serif;
         }
-        
+
+        :root {
+            --primary: #216869;
+            --secondary: #49A078;
+            --accent: #1F2421;
+            --light: #f8f9fa;
+            --text-dark: #1F2421;
+            --text-light: #ffffff;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--text-light);
             line-height: 1.6;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 20px;
-            color: #333;
         }
-        
+
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            text-align: center;
+            padding: 20px;
         }
-        
-        .app-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #4CAF50, #45a049);
-            border-radius: 25px;
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(31, 36, 33, 0.8);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: var(--secondary);
+            border-radius: 30px;
             margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 50px;
             color: white;
-            font-size: 40px;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+            box-shadow: 0 8px 20px rgba(73, 160, 120, 0.3);
         }
-        
+
         h1 {
-            color: #2c3e50;
             font-size: 2.5em;
             margin-bottom: 10px;
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-light);
         }
-        
+
         .subtitle {
-            color: #7f8c8d;
-            font-size: 1.2em;
-            margin-bottom: 30px;
+            font-size: 1.3em;
+            color: var(--text-light);
+            opacity: 0.9;
+            margin-bottom: 20px;
         }
-        
-        .features {
+
+        /* Features Grid */
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .feature {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #4CAF50;
-        }
-        
-        .feature h3 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        .links {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
             margin: 40px 0;
         }
-        
-        .link-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #4CAF50, #45a049);
-            color: white;
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95em;
+        }
+
+        /* Buttons Section */
+        .actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 15px 30px;
-            margin: 10px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.1em;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+            min-width: 200px;
+            text-align: center;
         }
-        
-        .link-button:hover {
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+            box-shadow: 0 5px 15px rgba(73, 160, 120, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: #3d8a63;
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+            box-shadow: 0 8px 20px rgba(73, 160, 120, 0.6);
         }
-        
-        .link-button.secondary {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
-        
-        .contact {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #ecf0f1;
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
         }
-        
-        .contact a {
-            color: #3498db;
+
+        .btn i {
+            margin-left: 8px;
+        }
+
+        /* App Specs */
+        .specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .spec-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .spec-card h4 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            background: rgba(31, 36, 33, 0.8);
+            border-radius: 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: var(--secondary);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-                margin: 10px;
-            }
-            
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Prayer Feature Highlight */
+        .prayer-highlight {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .prayer-highlight .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .prayer-highlight h2 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .prayer-highlight p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
             h1 {
                 font-size: 2em;
             }
             
-            .features {
+            .features-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 30px 15px;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
+            }
+            
+            .prayer-highlight {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="app-icon">
-            📖
-        </div>
-        
-        <h1>أذكار وأحاديث</h1>
-        <p class="subtitle">تطبيق الأذكار اليومية والأحاديث النبوية الشريفة</p>
-        
-        <div class="features">
-            <div class="feature">
-                <h3>📱 أذكار الصباح والمساء</h3>
-                <p>الأذكار اليومية المأثورة عن رسول الله صلى الله عليه وسلم</p>
+        <header>
+            <div class="logo">
+                <i class="fas fa-book-quran"></i>
             </div>
-            <div class="feature">
-                <h3>🕌 أحاديث نبوية</h3>
-                <p>مجموعة مختارة من الأحاديث الصحيحة</p>
+            <h1>تطبيق أذكار وأحاديث</h1>
+            <p class="subtitle">تطبيق متكامل للأذكار والأحاديث ومواقيت الصلاة</p>
+        </header>
+
+        <!-- قسم مواقيت الصلاة المميز -->
+        <section class="prayer-highlight">
+            <div class="feature-icon">
+                <i class="fas fa-clock"></i>
             </div>
-            <div class="feature">
-                <h3>⚙️ سهولة الاستخدام</h3>
-                <p>واجهة بسيطة وسهلة للجميع</p>
+            <h2>مواقيت الصلاة الدقيقة</h2>
+            <p>يقدم التطبيق خدمة عرض مواقيت الصلاة بدقة عالية حسب الموقع الجغرافي للمستخدم، مع تذكير قبل كل صلاة</p>
+        </section>
+
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-pray"></i>
+                </div>
+                <h3>الأذكار الشاملة</h3>
+                <p>أذكار الصباح والمساء، أذكار النوم، أذكار بعد الصلاة، وأذكار عامة متنوعة</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <h3>الأحاديث النبوية</h3>
+                <p>مجموعة واسعة من الأحاديث الشريفة مصنفة حسب المواضيع والتصنيفات</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <h3>المشاركة المتقدمة</h3>
+                <p>مشاركة الأحاديث والأذكار كنص أو كصورة مع إمكانيات متقدمة للإحصاءات</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>الإحصاءات والسجل</h3>
+                <p>تتبع تقدمك في حفظ الأذكار والأحاديث مع إحصائيات مفصلة وسجل كامل</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>ثيمات متعددة</h3>
+                <p>تجربة استخدام مريحة مع نظام ثيمات متكامل (فاتح/غامق) يتناسب مع تفضيلاتك</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <h3>تذكير المواقيت</h3>
+                <p>تذكير بمواقيت الصلاة حسب موقعك الجغرافي مع إشعارات قبل كل صلاة</p>
+            </div>
+        </section>
+
+        <div class="actions">
+            <a href="https://play.google.com/store/apps/details?id=com.barakatdevelopment.Azkar_W_Ahadith" class="btn btn-primary" target="_blank">
+                <i class="fab fa-google-play"></i> تحميل من Google Play
+            </a>
+            <a href="Azkar_W_Ahadith.apk" class="btn btn-secondary" download>
+                <i class="fas fa-download"></i> تحميل APK مباشر
+            </a>
+        </div>
+
+        <div class="specs">
+            <div class="spec-card">
+                <h4><i class="fas fa-code-branch"></i> الإصدار</h4>
+                <p>أخر تحديث: 17 نوفمبر 2025</p>
+            </div>
+            <div class="spec-card">
+                <h4><i class="fas fa-language"></i> اللغة</h4>
+                <p>العربية (سيتم إضافة لغات أخرى)</p>
+            </div>
+            <div class="spec-card">
+                <h4><i class="fas fa-paint-roller"></i> الثيمات</h4>
+                <p>ثيم فاتح وثيم غامق</p>
+            </div>
+            <div class="spec-card">
+                <h4><i class="fas fa-mobile-alt"></i> التوافق</h4>
+                <p>أندرويد 8.0 والإصدارات الأحدث</p>
             </div>
         </div>
-        
-        <div class="links">
-            <a href="app-ads.txt" class="link-button">ملف الإعلانات (app-ads.txt)</a>
-            <a href="privacy-policy.html" class="link-secondary link-button secondary">سياسة الخصوصية</a>
-        </div>
-        
-        <div class="contact">
-            <p>للاتصال والدعم الفني: </p>
-            <p><a href="mailto:support@example.com">support@example.com</a></p>
-            <p style="margin-top: 15px; color: #7f8c8d; font-size: 0.9em;">
-                © 2024 تطبيق أذكار وأحاديث. جميع الحقوق محفوظة.
-            </p>
-        </div>
+
+        <footer>
+            <div class="footer-links">
+                <a href="app-ads.txt"><i class="fas fa-ad"></i> ملف الإعلانات</a>
+                <a href="privacy-policy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a>
+            </div>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; تطبيق أذكار وأحاديث 2025</p>
+                <p>التطبيق من تطوير: Barakat Development</p>
+            </div>
+        </footer>
     </div>
 </body>
-                </html>
+                    </html>
